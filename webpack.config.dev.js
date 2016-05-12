@@ -10,12 +10,8 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js',  // 輸出的檔案名稱
-    publicPath: '/public/'
+    publicPath: '/public/',
   },
-   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
-  ], 
   module: {
     loaders: [{
       test: /\.js$/,   // 針對 js 檔
@@ -26,7 +22,15 @@ module.exports = {
     }, {
       test: /\.css$/,  // 針對 css 檔
       loaders: ['style', 'css'],
-      exclude: /node_modules/   // 不要處理 3rd party 的 code
+      
     },]
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('development')
+      }
+    })
+  ], 
 };
