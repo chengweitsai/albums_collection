@@ -5,8 +5,7 @@ const AlbumPage = ({ params }) => {
 	return (
 		<div className="container-fluid">
 			<div className="row">
-				<h1>  </h1>
-
+				<h1>  HELLO</h1>
 			</div>
 		</div>
 	);

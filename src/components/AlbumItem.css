@@ -1,0 +1,28 @@
+.album-item {
+	position: relative;
+	
+}
+
+.extend {
+	position: relative;
+	width: 100%;
+	background-color: grey;
+	color: white;
+
+
+}
+
+.row {
+	position: relative;
+
+
+}
+
+.App {
+	position: relative;
+}
+
+.test {
+	position: absolute;
+}
+

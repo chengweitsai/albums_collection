@@ -5,22 +5,26 @@ const Albums = [
 	{
 		name:'Mars',
 		Author:'Tyko',
-		songs: []
+		songs: [],
+		extend:false,
 	},
 	{
 		name:'I have a dream',
 		Author:'M.K',
 		songs:[],
+		extend:false,
 	},
 	{
 		name:'Cheer!',
 		Author:'Train',
 		songs:[],
+		extend:false,
 	},
 	{
 		name:'Road to the Sea',
 		Author:'Maria',
 		songs:[],
+		extend:false,
 	}
 ];
 

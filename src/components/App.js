@@ -2,12 +2,14 @@ import React, { Component, PropTypes } from 'react';
 import { IndexLink, Link } from 'react-router';
 import Albums from '../Albums';
 import AlbumItem from './AlbumItem';
+import MainPage from './MainPage';
 
 
 export default class App extends Component {
 
   static contextTypes = {
-    router: PropTypes.object.isRequired
+    router: PropTypes.object.isRequired, 
+    //children: PropTypes.any.isRequired,
   };
   
   constructor(props) {
@@ -24,13 +26,14 @@ export default class App extends Component {
   }
 
   renderAlbum (album, i) {
-    const {name, Author, songs} = album;
+    const {name, Author, songs, extend} = album;
     return (
       <AlbumItem 
         key={i}
         name={name}
         Author={Author}
         songs={songs}
+        extend={extend}
         onClick={this.handleClickAlbum.bind(this,i)}
       />);
   }
@@ -39,7 +42,7 @@ export default class App extends Component {
     const {albums, play_a, play_s, cursor} = this.state;
     const playing_album = albums[play_a].name;
     return (
-      <div>
+      <div className="App">
         <nav className="navbar navbar-default">
           <div className="container-fluid">
             <div className="navbar-header">
@@ -65,6 +68,7 @@ export default class App extends Component {
               <li>
                 <h2> Now Playing:   {playing_album} </h2>
               </li>
+              <li><IndexLink to="/" activeClassName="active">LogOut</IndexLink></li>
               </ul>
             </div>
 
@@ -72,13 +76,17 @@ export default class App extends Component {
           </div>
         </nav>
        
-        {/*render child*/}
+        {/* this will render the child routes */}
         <div className="row">
         {albums.map(this.renderAlbum, this)}
         </div>
+        
+
+
         <div className="container">
           {this.props.children}
         </div>
+        
       </div>
     );
   }

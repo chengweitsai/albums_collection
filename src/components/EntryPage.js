@@ -40,5 +40,4 @@ class EntryPage extends Component {
 	}
 }
 
-
 export default EntryPage;
